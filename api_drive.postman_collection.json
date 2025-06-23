@@ -1,0 +1,1117 @@
+{
+	"info": {
+		"_postman_id": "ec13d3ef-8e4e-4319-be82-a45ade0b955f",
+		"name": "api_drive",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33319270"
+	},
+	"item": [
+		{
+			"name": "Функционал гостя",
+			"item": [
+				{
+					"name": "Авторизация администратора",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "se24@oatk.org",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "P@rtyOATK",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Авторизация пользователя",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "teacher@oatk.ru",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "QwertyP@rtyOATK",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/authorization",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"authorization"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Функционал администратора",
+			"item": [
+				{
+					"name": "Регистрация нового пользователя",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "se242@oatk.org",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "P@rtyOATK1",
+									"type": "text"
+								},
+								{
+									"key": "first_name",
+									"value": "Dsds",
+									"type": "text"
+								},
+								{
+									"key": "last_name",
+									"value": "Dddd",
+									"type": "text"
+								},
+								{
+									"key": "patronymic",
+									"value": "Dddd",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "2024-12-12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/registration",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание нового года",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "year",
+									"value": "2025",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/years",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление года",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/years/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"years",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание новой специальности",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "speciality",
+									"value": "Информационные системы и программирование",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "09.02.07",
+									"type": "text"
+								},
+								{
+									"key": "abbreviation",
+									"value": "ИСП",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/specialties",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"specialties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление специальности",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "12.12.12",
+									"type": "text"
+								},
+								{
+									"key": "speciality",
+									"value": "asd asd asd as",
+									"type": "text"
+								},
+								{
+									"key": "abbreviation",
+									"value": "aaas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/specialties/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"specialties",
+								"4"
+							],
+							"query": [
+								{
+									"key": "abbreviation",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "code",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "speciality",
+									"value": "1212",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление специальности",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/specialties/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"specialties",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Создание новой группы",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "year_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "speciality_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "group",
+									"value": "ИСП321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение групп",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление группы",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "year_id",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "speciality_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "group",
+									"value": "asasdasdas",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/groups/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление группы",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_admin}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/groups/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Функционал преподавателя",
+			"item": [
+				{
+					"name": "Получение годов",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/years",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"years"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение специальностей",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/specialties",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"specialties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение групп за выбранный год",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/groups/year/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups",
+								"year",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение групп по выбранной специальности",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/groups/year/6",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups",
+								"year",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получение ВКР группы",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/groups/5/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"groups",
+								"5",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Поиск ВКР",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/search/?query=ива",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "ива"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Добавление ВРК",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student",
+									"value": "Иван",
+									"type": "text"
+								},
+								{
+									"key": "topic",
+									"value": "wertere",
+									"type": "text"
+								},
+								{
+									"key": "group_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ad/Downloads/asd.zip"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Обновление ВРК",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "student",
+									"value": "Иванasdasdsf32232",
+									"type": "text"
+								},
+								{
+									"key": "topic",
+									"value": "wertere232",
+									"type": "text"
+								},
+								{
+									"key": "group_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ad/Downloads/Downloads.7z"
+								},
+								{
+									"key": "_method",
+									"value": "PATCH",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/files/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Удаление ВКР",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Загрузка ВКР",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_user}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/files/2/download",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"files",
+								"2",
+								"download"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
