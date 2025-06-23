@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>sadasd</button>
+</body>
+<script>
+    function download() {
+const fileUrl = 'http://127.0.0.1:8000/api-drive/files/2/download';
+
+// Функция для скачивания файла
+async function downloadFile(url) {
+    try {
+        const response = await fetch(url, {
+            method: 'GET', // или 'POST', 'PUT', и т.д.
+            headers: {
+                'Content-Type': 'application/json', // Укажите тип контента, если необходимо
+                'Accept': 'application/json', // Укажите тип контента, если необходимо
+                'Authorization': `Bearer 1|B1rlnkZZ1ArF9GdfOQ7KMTAVvc2BCJEN1xnNi4CJ7acdb531`, // Добавляем Bearer Token
+            },
+        });
+
+        // Проверяем, успешен ли ответ
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Получаем данные как Blob
+        const blob = await response.blob();
+
+        // Создаем URL для Blob
+        const blobUrl = window.URL.createObjectURL(blob);
+
+        // Создаем элемент <a> для скачивания
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = ''; // Указываем имя файла
+        document.body.appendChild(a);
+        a.click(); // Симулируем клик
+        a.remove(); // Удаляем элемент после скачивания
+
+        // Освобождаем память
+        window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+        console.error('Ошибка при скачивании файла:', error);
+    }
+}
+
+// Вызываем функцию для скачивания
+downloadFile(fileUrl);
+
+
+    }
+    document.querySelector('button').addEventListener('click', function(){
+        download();
+    })
+</script>
+</html>
